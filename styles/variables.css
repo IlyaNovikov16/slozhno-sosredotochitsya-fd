@@ -11,6 +11,6 @@
   --text: #f1b2ce;
   --title: #ff0070;
   --dark-blue: rgb(0, 0, 40);
-  --font-family: IBM Plex Mono;
+  --font-family: IBM Plex Mono, 'Arial', 'Helvetica', sans-serif;;
   --dim: #ff007066;
 }

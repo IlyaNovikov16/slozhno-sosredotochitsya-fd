@@ -1,13 +1,15 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 .page {
   background-image: var(--background-image);
+  background-color: var(--background);
   background-repeat: no-repeat;
   background-position: center;
 
   background-size: cover;
-
+  
   background-attachment: fixed;
 }
+
 .header {
   height: 100vh;
   min-height: 768px;
@@ -18,6 +20,27 @@
   align-items: start;
 }
 
+.header::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 25px;
+            height: 25px;
+            border-top: 1px solid var(--title);
+            border-right: 1px solid var(--title);
+        }
+.header::after {
+            content: "";
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 25px;
+            height: 25px;
+            border-bottom: 1px solid var(--title);
+            border-left: 1px solid var(--title);
+        }
+
 .header__theme-menu {
   display: grid;
   grid-auto-flow: row;
@@ -26,6 +49,7 @@
   align-self: start;
   margin-top: 20px;
 }
+
 .header__theme-menu-list {
   display: grid;
   grid-auto-flow: column;
@@ -44,16 +68,17 @@
   color: var(--title);
   font-family: var(--font-family);
   padding: 0;
+   transition: border 0.3s ease, opacity 0.3s ease;
 }
+
+.header__theme-menu-button:hover,
 .header__theme-menu-button_active {
   border: 1px solid var(--title);
+  opacity: 0.7;
+  
 }
-.header__theme-menu-button:hover {
-  border: 1px solid var(--title);
-  border-radius: none;
-}
+
 .header__theme-menu-button:focus {
-  border: none;
   outline: none;
   text-decoration: underline;
   text-decoration-color: var(--title);
@@ -67,20 +92,23 @@
   color: var(--pink);
   font-size: 18px;
   align-self: start;
-  position: absolute;
+  
   width: 33;
   height: 26;
   top: 20px;
-  left: 943px;
-
+  right:  50px;
+  font-family: var(--font-family);
+  color: var(--title) ;
   border-radius: 4px;
-  opacity: 0;
   transition: opacity 0.3s ease;
 }
+
 .theme-dark .header__rec {
   opacity: 1;
 }
-
+.theme-light .header__rec {
+  opacity: 0;
+}
 .header__rec::after {
   content: "";
   position: absolute;
@@ -90,10 +118,11 @@
   margin-left: 10px;
   margin-top: 5px;
   background-color: var(--big-color-back);
-  filter: blur(2px);
+  box-shadow: 0 0 4px 2px var(--title);
 }
+
 .header__center {
-  font-size: 157px;
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
   font-family: var(--font-family);
   font-weight: 700;
   font-style: Bold;
@@ -104,10 +133,12 @@
   justify-self: start;
   color: var(--big-color);
   text-shadow: 5px 5px var(--big-color-back);
+  
 }
+
 .header__bottom {
   width: 491px;
-  height: 70px;
+  
   font-family: var(--font-family);
   font-weight: 700;
   font-style: Bold;
@@ -120,42 +151,48 @@
   margin-right: 20px;
   margin-bottom: 135px;
 }
-.header__title {
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
 
-  @media (min-width: 768px) {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-}
+
+
 main {
   display: grid;
   height: auto;
   padding-top: 60px;
-  background-color: var(--background);
+  
 }
-.one_title {
+
+.why_title {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
+  margin-bottom: 80px;
 }
+
 .zag_main {
   width: 315px;
-  height: 47px;
+  
   margin-left: 20px;
   font-size: 18px;
   color: var(--title);
   font-family: var(--font-family);
   margin-bottom: 20px;
 }
+
 .block_text {
   width: 648px;
-
+  display: grid;
   font-size: 18px;
   justify-self: end;
   font-family: var(--font-family);
   margin-right: 20px;
   align-self: start;
+  gap: 20px;
 }
+.block_main{
+ display: grid;
+ gap: 10px;
+}
+
 .text_title {
   color: var(--black);
   background-color: var(--big-color-back);
@@ -163,9 +200,10 @@ main {
   font-weight: 700;
   font-style: Bold;
   font-size: 18px;
-
+  
   line-height: 23.4px;
 }
+
 .text_main {
   color: var(--text);
   font-family: var(--font-family);
@@ -175,14 +213,21 @@ main {
 
   line-height: 23.4px;
 
-  margin-top: 10px;
-  margin-bottom: 20px;
+  
+  
 }
+
+.a_why{
+  text-shadow: 2px 2px var(--big-color-back);
+  text-decoration: none;
+}
+
 .title-decor {
   background-color: var(--secondary-bg-color);
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
+
 .group-block {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -191,9 +236,11 @@ main {
   margin-right: 20px;
   margin-bottom: 80px;
 }
+
 .block {
   width: 315px;
 }
+
 .zag_block {
   color: var(--black);
   background-color: var(--big-color-back);
@@ -205,6 +252,7 @@ main {
   line-height: 23.4px;
   margin-bottom: 10px;
 }
+
 .txt_block {
   color: var(--text);
   font-family: var(--font-family);
@@ -215,13 +263,15 @@ main {
   line-height: 23.4px;
 
   margin-top: 10px;
-  margin-bottom: 20px;
+  
 }
-.three_title {
+
+.how_title {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 80px;
 }
+
 .content_block {
   width: 649px;
   display: grid;
@@ -229,10 +279,11 @@ main {
   font-weight: 700;
   font-style: Bold;
   font-size: 18px;
-
+  margin-right: 20px;
   line-height: 23.4px;
   gap: 20px;
 }
+
 .zag_content {
   color: var(--black);
   background-color: var(--big-color-back);
@@ -243,19 +294,28 @@ main {
 
   line-height: 23.4px;
 }
+
 .zag_section {
   color: var(--black);
-  background-color: var(--pink);
+  background-color: var(--big-color-back);
   font-family: var(--font-family);
-
+  
   font-weight: 400;
 
   font-size: 18px;
   line-height: 23.4px;
 }
+
+.a_how{
+   text-shadow: 2px 2px var(--big-color-back);
+  text-decoration: none;
+}
+
 .gallery {
   margin-bottom: 60px;
+
 }
+
 .galery_title {
   width: 984px;
   color: var(--black);
@@ -266,7 +326,9 @@ main {
   font-size: 18px;
   margin-left: 20px;
   line-height: 23.4px;
+  margin-bottom: 20px;
 }
+
 .gallery_pic {
   display: grid;
   width: 984px;
@@ -275,12 +337,14 @@ main {
   gap: 20px;
   margin-left: 20px;
 }
+
 .gallery_pic img {
   width: 100%;
   height: 100%;
 
   object-fit: cover;
 }
+
 .img_sunset {
   grid-column: 1 / span 2;
 }
@@ -301,11 +365,16 @@ main {
 .img_street {
   grid-column: span 2;
 }
+
 footer {
   display: grid;
-  height: 768px;
+  
   background-color: var(--background);
+  height: 100vh;
+  min-height: 668px;  
+
 }
+
 .title_footer {
   height: auto;
   font-size: 160px;

@@ -74,9 +74,11 @@
 .header__theme-menu-button:hover,
 .header__theme-menu-button_active {
   border: 1px solid var(--title);
-  opacity: 0.7;
+  border-color: var(--title); /* прозрачная граница */
+  opacity: 1; /* фон не теряет непрозрачность */
 }
 
+/* При фокусе — ТОЛЬКО нижнее подчёркивание */
 .header__theme-menu-button:focus {
   outline: none;
   text-decoration: underline;
@@ -212,6 +214,7 @@ main {
 .a_why {
   text-shadow: 2px 2px var(--big-color-back);
   text-decoration: none;
+  border-radius: 0;
 }
 
 .title-decor {
@@ -300,6 +303,23 @@ main {
 .a_how {
   text-shadow: 2px 2px var(--big-color-back);
   text-decoration: none;
+  border-radius: 0;
+}
+/* Добавляем ОДНУ линию при наведении */
+.a_why:hover,
+.a_how:hover {
+  text-decoration: underline;
+  text-decoration-color: var(
+    --text
+  ); /* цвет линии */ /* толщина — одна линия */
+  text-shadow: none;
+}
+
+.a_why:focus,
+.a_how:focus {
+  outline: none; /* отключаем стандартный outline */
+  box-shadow: 0 0 0 1px var(--text); /* чёрная рамка */
+  color: var(--text);
 }
 
 .gallery {
@@ -334,6 +354,12 @@ main {
 
   object-fit: cover;
 }
+.gallery_title,
+.gallery_pic {
+  width: 100%;
+  max-width: 984px;
+  margin: 0 auto;
+}
 
 .img_sunset {
   grid-column: 1 / span 2;
@@ -359,9 +385,31 @@ main {
 footer {
   display: grid;
 
-  background-color: var(--background);
   height: 100vh;
   min-height: 668px;
+  position: relative;
+  overflow: hidden;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid var(--title);
+  border-right: 1px solid var(--title);
+}
+
+footer::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 25px;
+  height: 25px;
+  border-bottom: 1px solid var(--title);
+  border-left: 1px solid var(--title);
 }
 
 .title_footer {
@@ -377,4 +425,5 @@ footer {
   text-shadow: 2px 2px var(--big-color-back);
   object-position: center;
   margin-top: 319px;
+  z-index: 1;
 }

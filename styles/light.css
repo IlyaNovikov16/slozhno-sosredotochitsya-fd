@@ -12,6 +12,7 @@
   --black: #353430;
   --text: #353430;
   --title: #353430;
+  --rgb-title: 53, 52, 48;
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -22,6 +23,7 @@
     --black: #353430;
     --text: #353430;
     --title: #353430;
+    --rgb-title: 53, 52, 48;
   }
 
   /* Остальные стили, только при необходимости */

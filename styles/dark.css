@@ -17,6 +17,7 @@
   --black: #000028;
   --text: #f1b2ce;
   --title: #ff0070;
+  --rgb-title: 255, 0, 112;
 }
 
 .theme-dark .page {
